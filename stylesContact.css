@@ -380,11 +380,10 @@ footer{
         text-align: center;
     }
 
-      
+} 
     @media(max-width:380px){
         .footer__copyright{
             padding: 0 6px;
         }
     }
 
-}
