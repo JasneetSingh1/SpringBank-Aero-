@@ -451,6 +451,10 @@ footer{
     .newsAndEvents__calendar{
         width: 100%;
     }
+
+    .newsAndEvents__title{
+        text-align: center;
+    }
     
 
 } 
