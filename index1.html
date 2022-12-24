@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    
     <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,6 +55,26 @@
                     link__hover-effect--black">Contact Us</a>
                 </li>
             </ul>
+
+            <button class="btn__menu b" onclick="openMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="menu__backdrop">
+                <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                    <i class="fa fa-times"></i>
+                </button>
+                <ul class="menu__links">
+                    <li><a href="./index1.html" class="menu__link menu__link--a">Home</a></li>
+                    <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
+                    <li><a href="./indexServices.html" class="menu__link menu__link--a">Services</a></li>
+                    <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
+                    <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
+                    <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
+                    <li><a href="#" class="menu__link menu__link--signUp singUp btn">Login</a></li>
+                </ul>
+            </div>
+
         </nav>
         <header class="header">
             <!-- <img class="header__background--img" src="./assets/airstrip.webp" alt=""> -->
