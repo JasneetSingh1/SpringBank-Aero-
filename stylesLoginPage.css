@@ -7,6 +7,12 @@
     font-family: 'Roboto', 'sans-serif';
 }
 
+body{
+
+    background-color: rgb(245, 245, 245) ;
+}
+
+
 li{
     list-style: none;
 }
@@ -55,6 +61,7 @@ a{
 
 
 
+
 /* NAVIGATION */
 
 nav{
@@ -66,7 +73,12 @@ nav{
     margin: 0 auto;
     height: 16vh;
     padding: 0 24px;
+    background-color: #fff;
     
+}
+
+.nav__container{
+    background-color: #fff;
 }
 
 /* nav{
@@ -128,7 +140,7 @@ nav{
     left: 0;
     right: 0;
     width: 100vw;
-    height: 35vh;
+    height: 31vh;
     z-index: 100;
     display: flex;
     align-items: center;
@@ -215,267 +227,126 @@ nav{
 
 
 
+/* LOGIN SECTION */
 
-/* LANDING PAGE */
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.header{
-    background-image: url(./assets/airstrip.webp);
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-    height: 84vh;
+.box{
+    
+    width: 480px;
+    max-width: 480px;
+    margin: 20vh;
+    padding: 2rem;
+    font-size: 18px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-color: #fff;
+    
     
 }
 
-.header__content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 0px;
-    z-index: 1;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+.form--hidden{
+    display: none;
 }
 
+.form > *:first-child{
+    margin-top: 0;
+}
 
-.header__title{
-    font-size: 56px;
-    margin-bottom: 36px;
-    text-align: left;
-    line-height: 1;
-    color: #fff;
+.form > *:last-child{
+    margin-bottom: 0;
+}
+
+.form__title{
+    margin-bottom: 2rem;
     text-align: center;
+    color:  #0071ba;
 }
 
-.header__para{
-font-size: 20px;
-line-height: 2;
-max-width: 500px;
-color: #fff;
-font-weight: 500;
-margin-bottom: 48px;
-text-align: center;
-
-}
-
-.service__btn{
-    padding: 14px 29px;
-    line-height: 16px;
+.form__message{
+    text-align: center;
+    margin-bottom: 1rem;
     font-size: 16px;
-    font-weight: 500;
-    border-radius: 3px;
-    background-color: #0071ba;
-    color: #fff;
-    border-color: transparent ;
-    box-shadow: none;
-    transition: all 300ms ease;
 }
 
-.service__btn:hover{
+.form__message--sucess{
+    color: green;
+}
+
+.form__message--error{
+    color: red;
+}
+
+.form__input-group{
+    margin-bottom: 1rem;
+}
+
+.form__input{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus{
+    border-color: #0071ba;
+    background: #fff;
+}
+
+.form__input--error{
+    color: red;
+    border-color: red;
+}
+
+.form__input-error-message{
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: red;
+}
+
+.form__button{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    outline: none;
     cursor: pointer;
+    background: #0071ba;
+}
+
+.form__button:hover{
     background-color: #057bca;
 }
 
-.service__btn:active{
+.form__button:active{
     transform: scale(0.98);
 }
 
-.info__list{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 16px;
-}
-
-.info__item{
-    margin: 0 12px;
-    color: #fff;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-
-/* ABOUT */
-
-#about-us{
-    width: 100%;
-    /* max-width: 1200px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(245, 245, 245);
-    
-
-    
-}
-
-.about-us__title{
-font-size: 36px;
-margin: 0 auto;
-display: flex;
-justify-content: center;
-align-items: center;
-color: #0071ba;
-margin-top: 24px;
-margin-bottom: 24px;
-
-}
-
-.about-us__content{
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.about-us--content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-us--para{
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-.about__img--container{
-    width: 40%;
-    border-radius: 3px;
-    
-}
-
-.about__img{
-    width: 100%;
-    border-radius: 80px;
-}
-
-.about-us__detail{
-    width: 60%;
-    max-width: 560px;
-    margin: 36px 0 36px 36px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-us--para{
-    color: rgb(128, 126, 126);
-    font-size: 24px;
-    line-height: 1.7;
-}
-
-.about__btn{
-    margin-top: 12px;
-}
-
-
-/* NAVIGATION */
-
-#events{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(245, 245, 245);
-    padding-bottom: 36px;
-    padding-top: 36px;
-}
-
-.events__title{
-font-size: 36px;
-margin: 0 auto;
-display: flex;
-justify-content: center;
-align-items: center;
-color: #0071ba;
-margin-top: 24px;
-margin-bottom: 24px;
-}
-
-
-/* FUEL PRICES */
-
-#fuelPrices{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(245, 245, 245);
-}
-
-.fuelPrices__title{
-    font-size: 36px;
-margin: 0 auto;
-display: flex;
-justify-content: center;
-align-items: center;
-color: #0071ba;
-margin-top: 24px;
-margin-bottom: 24px;
-}
-
-.plans {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 36px;
-    
-}
-
-.plan {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-right: 32px;
-    position: relative;
-    padding: 44px 36px;
-    color: rgba(247,250,252,var(--tw-text-opacity));
-    background-image: linear-gradient(135deg, rgb(76, 81, 191) 0%, rgb(102, 126, 234) 100%);
-    border: rgba(247,250,252);
-}
-
-
-.plan__title {
-    margin: 32px 0 24px 0;
-    font-size: 20px;
-}
-
-.plan__price {
-    margin: 24px 0;
-    padding: 36px 0;
-    font-size: 48px;
+.form__text{
     text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    margin-top: 1rem;
 }
 
-
-hr {
-    border: 0;
-    clear:both;
-    display:block;
-    width: 100%;               
-    background-color:#e5e7eb;
-    height: 1px;
-    border-radius: 10px;
+.form__link{
+    color:rgb(128, 126, 126);
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.business__hr{
-    background-color: rgba(102,126,234);
-    
-}
-
-.bus{
-    color: rgba(247,250,252);
+.form__link:hover{
+    text-decoration: underline;
 }
 
 
@@ -590,32 +461,6 @@ footer{
 
 
 
-/* @media(max-width:1130px){
-    .container{
-        flex-direction: column;
-    }
-
-    .footer__social--list{
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-    }
-} */
-
-
-@media(max-width:1190px){
-    .header__para{
-        margin-top: 124px;
-    }
-
-}
-
-@media(max-width: 1080px){
-    .about-us__detail{
-        width: 50%;
-    }
-}
-
 @media(max-width:1060px){
     .btn__menu{
         display: block;
@@ -626,12 +471,13 @@ footer{
     }
 }
 
+
 @media(max-width: 980px){
 
-
-    .about-us--para{
-        font-size: 22px;
+    .form__text{
+        font-size: 16px;
     }
+    
 
     footer{
         display: flex;
@@ -668,57 +514,9 @@ footer{
 }
 
 
-@media(max-width:855px){
-
-    .events__calendar{
-        width: 80%;
-    }
-
-    .about-us--para{
-        font-size: 20px;
-    }
-}
-
-
 @media(max-width:768px){
     
-    .info__list{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .info__item{
-        font-size: 20px;
-        padding-top: 4px;
-    }
-
-    .header__para{
-        margin-top: 124px;
-    }
-
-
-    #about-us{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .about-us--content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .about__img--container{
-        width: 60%;
-    }
-
-    .about-us__detail{
-        width: 60%;
-        margin: 0 auto;
-        padding-top: 16px;
-    }
+    
 
     .about-us--para{
         margin-bottom: 16px;
@@ -780,100 +578,18 @@ footer{
         text-align: center;
     }
 
-    .plans{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .plan{
-        margin: 24px 0;
-        width: 50%;
-    }
-
     #personal-logo{
         width: 240px;
     }
 }
 
-@media(max-width:690px){
-    .header__title{
-        font-size: 48px;
-    }
-
-    .plan__price{
-        font-size: 40px;
-    }
-
-    .plan{
-        width: 70%;
-    }
-}
-
-@media(max-width:580px){
-    .header__title{
-        font-size: 40px;
-    }
-
-    .events__calendar{
-        width: 90%
-    }
-}
-
-/* @media(max-width:514px){
-    .plan__title{
-        font-size: 18px;
-    }
-
-    .plan__price{
-        font-size: 36px;
-    }
-
-} */
-
-@media(max-width:540px){
-    .plan__price{
-        font-size: 36px;
-    }
-
-    .plan__title{
-        font-size: 18px;
-    }
-
-}
-
 
 @media(max-width:495px){
-
-    .header__title{
-        font-size: 36px;
-    }
-
-    .header__para{
-        text-align: center;
-    }
-
-    .plan__price{
-        font-size: 30px;
-    }
-
-    .plan__title{
-        font-size: 16px;
-    }
 
     #personal-logo{
         width: 200px;
     }
 
-}
-
-
-@media(max-width:440px){
-    .header__title{
-        font-size: 34px;
-    }
 }
 
 @media(max-width:380px){
