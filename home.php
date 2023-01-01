@@ -44,6 +44,6 @@ $user_dat = check_login($con);
 <?php echo $user_data1['value'];?>
 </h1>
 <a href="login.php">Login Page</a>
-<a href="index.php">Admin Page</a>
+<a href="index.php">Admin</a>
 </body>
 </html>
