@@ -201,7 +201,7 @@ nav{
     line-height: 3.0em;
 }
 
-.menu__link--a{ 
+.menu__link--a{
     transition: all 300ms ease;
     border-bottom: 2px solid transparent;
 }
@@ -224,10 +224,9 @@ nav{
 }
 
 
+/* ADMIN PAGE */
 
 
-
-/* LOGIN SECTION */
 
 .contain{
     display: flex;
@@ -267,6 +266,18 @@ nav{
     color:  #0071ba;
 }
 
+.price__title{
+    margin-bottom: 2rem;
+    color:  #0071ba;
+}
+
+.current__price{
+    margin-bottom: 1rem;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(128, 126, 126);
+}
+
 .form__message{
     text-align: center;
     margin-bottom: 1rem;
@@ -295,6 +306,7 @@ nav{
     outline: none;
     background: #eeeeee;
     transition: background 0.2s, border-color 0.2s;
+    font-size: 16px;
 }
 
 .form__input:focus{
@@ -314,6 +326,7 @@ nav{
 }
 
 .form__button{
+    margin-top: 1.6rem;
     width: 100%;
     padding: 1rem 2rem;
     font-weight: bold;
@@ -347,253 +360,4 @@ nav{
 
 .form__link:hover{
     text-decoration: underline;
-}
-
-
-
-
-
-/* FOOTER */
-
-.container{
-    padding: 50px 0;
-    width: 100%;
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-footer{
-    background-color: #242424;
-    /* display: flex; */
-    padding: 6% 0;
-    position: relative;
-}
-
-
-.footer__logo--img{
-    width: 260px;
-    /* height: 70px; */
-    /* filter: invert(1); */
-    transform: translateX(80px);
-}
-
-.modal__medias{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.modal__media{
-    transform: translateX(90px);
-    margin-top: 24px;  
-}
-
-.modal__media--img{
-    transition: all 300ms ease;
-    filter: invert(1);
-}
-.modal__media--img:hover{
-    transform: scale(1.2);
-    filter: invert(2);
-}
-
-.footer__social--list{
-    width: 50%;
-    max-width: 600px;
-    display: flex;
-    justify-content: space-between;
-    margin: 28px 0;
-    
-}
-
-.footer__social--link,
-.footer__copyright{
-    color: white;
-}
-
-.footer__booking--wrapper{
-    margin-right: 36px;
-    font-weight: 500;
-    
-}
-
-.footer__booking--link{
-   color: #fff;
-   font-weight: 600;
-}
-
-.footer__contact--wrapper{
-    margin-right: 36px;
-    color: #fff;
-}
-
-.footer__contact--title{
-    margin-bottom: 4px;
-}
-
-.footer__contact--para{
-    margin-bottom: 2px;
-}
-
-.footer__location--wrapper{
-    margin-right: 36px;
-    color: #fff;
-}
-
-.footer__location--title{
-    margin-bottom: 4px;
-}
-
-.footer__copyright{
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 24px;
-    font-size: 16px;
-    text-align: center;
-}
-
-
-
-@media(max-width:1060px){
-    .btn__menu{
-        display: block;
-    }
-
-    .nav__link--list{
-        display: none;
-    }
-}
-
-
-@media(max-width: 980px){
-
-    .form__text{
-        font-size: 16px;
-    }
-    
-
-    footer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .container{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .footer__social--list{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0 auto;
-        max-width: none;
-        align-items: center;
-        padding: 0 16px;
-        margin-top: 50px;
-    }
-
-    .footer__logo--img{
-        transform: translateX(0px);
-    }
-
-    .modal__media{
-        transform: translateX(0px);
-    }
-
-}
-
-
-@media(max-width:768px){
-    
-    
-
-    .about-us--para{
-        margin-bottom: 16px;
-    }
-
-    footer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .footer__social--list{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .footer__social--link{
-        text-align: center;
-    }
-
-
-    .footer__booking--link{
-        font-size: 20px;
-        text-align: center;
-    }
-
-    .footer__contact--wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 16px;
-    }
-
-    .footer__location--wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 16px;
-    }
-
-    .footer__row{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
-    }
-
-    .footer__copyright{
-        font-size: 14px;
-        font-weight: 500;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    #personal-logo{
-        width: 240px;
-    }
-}
-
-
-@media(max-width:495px){
-
-    #personal-logo{
-        width: 200px;
-    }
-
-}
-
-@media(max-width:380px){
-    .footer__copyright{
-        padding: 0 6px;
-    }
 }

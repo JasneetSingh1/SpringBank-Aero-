@@ -1,3 +1,29 @@
+<?php
+
+
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_dat = check_login($con);
+
+        $query = "SELECT * FROM jet_a1_price ORDER BY id DESC LIMIT 1";
+        $result = mysqli_query($con, $query);
+        $user_data = mysqli_fetch_assoc($result);
+
+        $query2 = "SELECT * FROM av_gas_price ORDER BY id DESC LIMIT 1";
+        $result2 = mysqli_query($con, $query2);
+        $user_data2 = mysqli_fetch_assoc($result2);
+        
+    
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +42,11 @@
         <div class="nav__container">
         <nav>
             <figure>
-                <a href="./index1.html"><img id="personal-logo" src="./assets/personal-logo.png" alt=""></a>
+                <a href="./index1.php"><img id="personal-logo" src="./assets/personal-logo.png" alt=""></a>
             </figure>
             <ul class="nav__link--list">
                 <li class="nav__link">
-                    <a href="./index1.html" class="
+                    <a href="./index1.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">Home</a>
@@ -32,7 +58,7 @@
                     link__hover-effect--black">About</a>
                 </li>
                 <li class="nav__link">
-                    <a href="./indexServices.html" class="
+                    <a href="./indexServices.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">Services</a>
@@ -66,9 +92,9 @@
                     <i class="fa fa-times"></i>
                 </button>
                 <ul class="menu__links">
-                    <li><a href="./index1.html" class="menu__link menu__link--a">Home</a></li>
+                    <li><a href="./index1.php" class="menu__link menu__link--a">Home</a></li>
                     <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
-                    <li><a href="./indexServices.html" class="menu__link menu__link--a">Services</a></li>
+                    <li><a href="./indexServices.php" class="menu__link menu__link--a">Services</a></li>
                     <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
                     <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
                     <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
@@ -94,7 +120,7 @@
                 <h1 class="header__title"><b class="blue">Springbank</b> Aero <b class="blue">Services</b></h1>
                 <p class="header__para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla earum vitae
                     porro error consectetur.</p>
-                <a href="./indexServices.html">
+                <a href="./indexServices.php">
                     <button class="service__btn">
                         Our Services
                     </button>
@@ -127,14 +153,22 @@
                 <div class="plan business__plan">
                     <h2 class="plan__title bus">JET A-1 (FSII)</h2>
                     <hr class="business__hr">
-                    <h1 class="plan__price bus">$ 35.55</h1>
+                    <h1 class="plan__price bus">$
+                        <?php if (isset($user_data['price'])): ?>
+                            <?php echo $user_data['price'];?>
+                        <?php endif; ?>
+                    </h1>
                     
                 </div>
 
                 <div class="plan business__plan">
                     <h2 class="plan__title bus">AV GAS 100LL</h2>
                     <hr class="business__hr">
-                    <h1 class="plan__price bus">$ 50.11</h1>
+                    <h1 class="plan__price bus">$
+                        <?php if (isset($user_data2['price'])): ?>
+                            <?php echo $user_data2['price'];?>
+                        <?php endif; ?>
+                    </h1>
                     
                 </div>
             </div>
@@ -176,12 +210,19 @@
             </div>
             </div>
             <div class="footer__social--list">
-                <div class="footer__booking--wrapper">
+            <div class="footer__booking--wrapper">
+                <a href="indexLoginPage.php" class="
+                footer__booking--link
+                link__hover-effect
+                link__hover-effect--white
+                ">Login</a>
+            </div>
+            <div class="footer__booking--wrapper">
                 <a href="#" class="
-            footer__booking--link
-            link__hover-effect
-            link__hover-effect--white
-            ">Book with Us !</a>
+                footer__booking--link
+                link__hover-effect
+                link__hover-effect--white
+                ">Book with Us !</a>
             </div>
                 <div class="footer__contact--wrapper">
                 <h3 class="footer__contact--title">Contact Us</h3>
