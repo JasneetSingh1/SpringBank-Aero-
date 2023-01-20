@@ -72,7 +72,7 @@ $user_dat = check_login($con);
             </figure>
             <ul class="nav__link--list">
                 <li class="nav__link">
-                    <a href="./index1.html" class="
+                    <a href="./index1.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">Home</a>
@@ -84,7 +84,7 @@ $user_dat = check_login($con);
                     link__hover-effect--black">About</a>
                 </li>
                 <li class="nav__link">
-                    <a href="./indexServices.html" class="
+                    <a href="./indexServices.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">Services</a>
@@ -118,9 +118,9 @@ $user_dat = check_login($con);
                     <i class="fa fa-times"></i>
                 </button>
                 <ul class="menu__links">
-                    <li><a href="./index1.html" class="menu__link menu__link--a">Home</a></li>
+                    <li><a href="./index1.php" class="menu__link menu__link--a">Home</a></li>
                     <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
-                    <li><a href="./indexServices.html" class="menu__link menu__link--a">Services</a></li>
+                    <li><a href="./indexServices.php" class="menu__link menu__link--a">Services</a></li>
                     <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
                     <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
                     <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
@@ -168,23 +168,7 @@ $user_dat = check_login($con);
 
 
 
-    <div id="box">
-
-<form method="post">
-    <div >Fuel 1</div>
-
-    <input id="text" type="text" name="fuel_price1"><br><br>
-    <input id="button" type="submit" value="price_button"><br><br>
-</form>
-
-<form method="post">
-    <div >Fuel 2</div>
-
-    <input id="text" type="text" name="fuel_price2"><br><br>
-    <input id="button" type="submit" value="price_button"><br><br>
-</form>
 
 
-</div>
 </body>
 </html>

@@ -6,7 +6,6 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-$user_dat = check_login($con);
 
 $query = "SELECT * FROM jet_a1_price ORDER BY id DESC LIMIT 1";
 $result = mysqli_query($con, $query);
@@ -34,7 +33,7 @@ $user_data2 = mysqli_fetch_assoc($result2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Services - Springbank Aero Services</title>
 </head>
 <body>
     <nav>
@@ -162,26 +161,26 @@ $user_data2 = mysqli_fetch_assoc($result2);
             </figure>
             <div class="modal__medias">
                 <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/instagram-logo.png" alt="">
+                    <a href="https://www.instagram.com/springbankaero/" target="_blank">
+                        <img class="modal__media--img" src="./assets/instagram-logo.png" alt="Instagram">
+                    </a>
+                    
+                </figure>
+                <figure class="modal__media">
+                    <a href="" target="_blank">
+                        <img class="modal__media--img" src="./assets/facebook-logo-2019.png" alt="Facebook">
+                    </a>
+                    
+                </figure>
+                <figure class="modal__media">
+                    <a href="mailto: general@springbankaero.com">
+                        <img class="modal__media--img" src="./assets/email.png" alt="Email">
                     </a>
                     
                 </figure>
                 <figure class="modal__media">
                     <a href="">
-                        <img class="modal__media--img" src="./assets/facebook-logo-2019.png" alt="">
-                    </a>
-                    
-                </figure>
-                <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/email.png" alt="">
-                    </a>
-                    
-                </figure>
-                <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/phone.png" alt="">
+                        <img class="modal__media--img" src="./assets/phone.png" alt="Phone">
                     </a>
                     
                 </figure>
@@ -208,7 +207,7 @@ $user_data2 = mysqli_fetch_assoc($result2);
             </div>
         </div>
     </div>
-    <div class="footer__copyright">© Copyright 2021 | Theme by leandesignsolutions.com | All Rights Reserved | Powered by WordPress</div>
+    <div class="footer__copyright">© Copyright 2023 | Theme by evansdigitaldesign.ca | All Rights Reserved </div>
 
 </footer>
 </html>

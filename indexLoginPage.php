@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Admin Login</title>
 </head>
 <body>
     <div class="nav__container">
@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             </figure>
             <ul class="nav__link--list">
                 <li class="nav__link">
-                    <a href="./index1.html" class="
+                    <a href="./index1.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">Home</a>
@@ -77,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     link__hover-effect--black">About</a>
                 </li>
                 <li class="nav__link">
-                    <a href="./indexServices.html" class="
+                    <a href="./indexServices.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">Services</a>
@@ -111,9 +111,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     <i class="fa fa-times"></i>
                 </button>
                 <ul class="menu__links">
-                    <li><a href="./index1.html" class="menu__link menu__link--a">Home</a></li>
+                    <li><a href="./index1.php" class="menu__link menu__link--a">Home</a></li>
                     <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
-                    <li><a href="./indexServices.html" class="menu__link menu__link--a">Services</a></li>
+                    <li><a href="./indexServices.php" class="menu__link menu__link--a">Services</a></li>
                     <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
                     <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
                     <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
@@ -163,26 +163,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             </figure>
             <div class="modal__medias">
                 <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/instagram-logo.png" alt="">
+                    <a href="https://www.instagram.com/springbankaero/" target="_blank">
+                        <img class="modal__media--img" src="./assets/instagram-logo.png" alt="Instagram">
+                    </a>
+                    
+                </figure>
+                <figure class="modal__media">
+                    <a href="" target="_blank">
+                        <img class="modal__media--img" src="./assets/facebook-logo-2019.png" alt="Facebook">
+                    </a>
+                    
+                </figure>
+                <figure class="modal__media">
+                    <a href="mailto: general@springbankaero.com">
+                        <img class="modal__media--img" src="./assets/email.png" alt="Email">
                     </a>
                     
                 </figure>
                 <figure class="modal__media">
                     <a href="">
-                        <img class="modal__media--img" src="./assets/facebook-logo-2019.png" alt="">
-                    </a>
-                    
-                </figure>
-                <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/email.png" alt="">
-                    </a>
-                    
-                </figure>
-                <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/phone.png" alt="">
+                        <img class="modal__media--img" src="./assets/phone.png" alt="Phone">
                     </a>
                     
                 </figure>
@@ -209,7 +209,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             </div>
         </div>
     </div>
-    <div class="footer__copyright">© Copyright 2021 | Theme by leandesignsolutions.com | All Rights Reserved | Powered by WordPress</div>
+    <div class="footer__copyright">© Copyright 2023 | Theme by evansdigitaldesign.ca | All Rights Reserved </div>
 
 </footer>
 

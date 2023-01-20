@@ -6,7 +6,6 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-$user_dat = check_login($con);
 
         $query = "SELECT * FROM jet_a1_price ORDER BY id DESC LIMIT 1";
         $result = mysqli_query($con, $query);
@@ -34,7 +33,7 @@ $user_dat = check_login($con);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Springbank Aero Services</title>
+    <title>Home - Springbank Aero Services</title>
 </head>
 
 <body>
@@ -118,8 +117,7 @@ $user_dat = check_login($con);
             </div>
             <div class="header__content">
                 <h1 class="header__title"><b class="blue">Springbank</b> Aero <b class="blue">Services</b></h1>
-                <p class="header__para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla earum vitae
-                    porro error consectetur.</p>
+                <p class="header__para">Safe, Fast, Convient</p>
                 <a href="./indexServices.php">
                     <button class="service__btn">
                         Our Services
@@ -131,7 +129,7 @@ $user_dat = check_login($con);
             <h2 class="about-us__title">About Us</h2>
             <div class="about-us--content">
                 <figure class="about__img--container">
-                    <img class="about__img" src="./assets/about-us--img.jpg" alt="">
+                    <img class="about__img" src="./assets/about-us--img.jpg" alt="Helicopter Outside Springbank Aero Services">
                 </figure>
                 <div class="about-us__detail">
                     <p class="about-us--para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem amet
@@ -184,26 +182,26 @@ $user_dat = check_login($con);
             </figure>
             <div class="modal__medias">
                 <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/instagram-logo.png" alt="">
+                    <a href="https://www.instagram.com/springbankaero/" target="_blank">
+                        <img class="modal__media--img" src="./assets/instagram-logo.png" alt="Instagram">
+                    </a>
+                    
+                </figure>
+                <figure class="modal__media">
+                    <a href="" target="_blank">
+                        <img class="modal__media--img" src="./assets/facebook-logo-2019.png" alt="Facebook">
+                    </a>
+                    
+                </figure>
+                <figure class="modal__media">
+                    <a href="mailto: general@springbankaero.com">
+                        <img class="modal__media--img" src="./assets/email.png" alt="Email">
                     </a>
                     
                 </figure>
                 <figure class="modal__media">
                     <a href="">
-                        <img class="modal__media--img" src="./assets/facebook-logo-2019.png" alt="">
-                    </a>
-                    
-                </figure>
-                <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/email.png" alt="">
-                    </a>
-                    
-                </figure>
-                <figure class="modal__media">
-                    <a href="">
-                        <img class="modal__media--img" src="./assets/phone.png" alt="">
+                        <img class="modal__media--img" src="./assets/phone.png" alt="Phone">
                     </a>
                     
                 </figure>
@@ -215,7 +213,7 @@ $user_dat = check_login($con);
                 footer__booking--link
                 link__hover-effect
                 link__hover-effect--white
-                ">Login</a>
+                ">Admin Login</a>
             </div>
             <div class="footer__booking--wrapper">
                 <a href="#" class="
@@ -237,7 +235,7 @@ $user_dat = check_login($con);
             </div>
         </div>
     </div>
-    <div class="footer__copyright">© Copyright 2021 | Theme by leandesignsolutions.com | All Rights Reserved | Powered by WordPress</div>
+    <div class="footer__copyright">© Copyright 2023 | Theme by evansdigitaldesign.ca | All Rights Reserved </div>
 
 </footer>
 </html>
