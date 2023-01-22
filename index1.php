@@ -117,7 +117,7 @@ include("functions.php");
             </div>
             <div class="header__content">
                 <h1 class="header__title"><b class="blue">Springbank</b> Aero <b class="blue">Services</b></h1>
-                <p class="header__para">Safe, Fast, Convient</p>
+                <p class="header__para">Safe, Fast, Convenient</p>
                 <a href="./indexServices.php">
                     <button class="service__btn">
                         Our Services
@@ -220,17 +220,17 @@ include("functions.php");
                 footer__booking--link
                 link__hover-effect
                 link__hover-effect--white
-                ">Book with Us !</a>
+                ">Book with Us!</a>
             </div>
                 <div class="footer__contact--wrapper">
                 <h3 class="footer__contact--title">Contact Us</h3>
-                <p class="footer__contact--para">Main Line: (403) 247-8833
+                <p class="footer__contact--para">Main Line: <br>(403) 247-8833
                 </p>
-                <p class="footer__contact--para">Direct Fuel line: (403) 466-8834</p>
+                <p class="footer__contact--para">Direct Fuel line: <br>(403) 466-8834</p>
                 </div>
                 <div class="footer__location--wrapper">
                     <h3 class="footer__location--title">Location</h3>
-                    <p class="footer__location--para">208A Avro Lane Calgary, Alberta T3Z 3S5</p>
+                    <p class="footer__location--para">208A Avro Lane <br> Springbank Airport <br>Calgary, Alberta T3Z 3S5</p>
                 </div>
             </div>
         </div>
