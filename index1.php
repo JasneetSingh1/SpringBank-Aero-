@@ -140,8 +140,10 @@ include("functions.php");
                     <a href="./indexAbout.html"><button class="about__btn service__btn">More About Us!</button></a>
             </div>
         </section>
+
         <section id="events">
             <h2 class="events__title">News & Events</h2>
+
             <div class="row mb-2">
                 <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -157,6 +159,7 @@ include("functions.php");
                     </div>
                 </div>
                 </div>
+
                 <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -171,8 +174,11 @@ include("functions.php");
                     </div>
                 </div>
                 </div>
+                
             </div>
+
         </section>
+
         <section id="fuelPrices">
             <h2 class="fuelPrices__title">Fuel Prices</h2>
             <div class="plans">
