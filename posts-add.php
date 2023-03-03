@@ -1,3 +1,32 @@
+<?php
+
+include("connection.php");
+include("functions.php");
+
+
+
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    //something was posted
+    $_SESSION['errors'] = array();
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+
+    if(!empty($title) && !empty($content)){
+
+        //save to database
+        $query = "insert into posts (title,content) values ('$title','$content')";
+        mysqli_query($con, $query);
+        header("Location: posts.php");
+        die;
+    }
+    else{
+        echo ("Please enter some valid information");
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,7 +42,7 @@
     
 
     
-
+    <link rel="stylesheet" href="stylesLoginPage.css">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
@@ -95,14 +124,14 @@
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link " aria-current="page" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
                 <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
                 <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
               </svg>
               Dashboard
             </a>
-            <a class="nav-link " aria-current="page" href="posts.php">
+            <a class="nav-link active " aria-current="page" href="posts.php">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
                 <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
                 <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
@@ -143,7 +172,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">POSTS</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -155,6 +184,38 @@
           </button>
         </div>
       </div>
+
+    <div class="col-md 6 mx-auto ">
+        <form method="post">
+        <h1 class=" form__title text-blue">Create Post</h1>
+
+        <?php if(isset($_SESSION['$errors'])):?>
+            <div class="alert alert-danger">Please fix the errors below</div>
+        <?php endif;?>
+
+        <div class="form-floating form__input-group">
+            <input type="text" class="form__input" name="title" autofocus placeholder="Title">
+        </div>
+        <?php if(!empty($errors['title'])):?>
+            <div class="text-danger">Please fix the title below</div>
+        <?php endif;?>
+
+        <div class="form__input-group">
+            <textarea rows="20" type="text" class="form__input" name="title" autofocus placeholder="Content">
+            </textarea>
+        </div>
+        <?php if(!empty($errors['content'])):?>
+            <div class="text-danger">Please fix the content below</div>
+        <?php endif;?>
+
+        <button class="mt-4 w-100 btn btn-primary" type="submit">Create</button>
+
+        </form>
+    </div>
+
+
+
+
 
       
 
