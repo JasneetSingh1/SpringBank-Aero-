@@ -1,28 +1,46 @@
 <?php
 
+session_start();
 include("connection.php");
 include("functions.php");
 
 
 
+$errors[] = "";
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     //something was posted
-    $_SESSION['errors'] = array();
     $title = $_POST['title'];
     $content = $_POST['content'];
+    
 
-    if(!empty($title) && !empty($content)){
+    if(!empty($title) && !empty($content))
+    {
+      //save to database
+      $query = "insert into posts (title,content) values ('$title','$content')";
+      mysqli_query($con, $query);
+      header("Location: posts.php");
+      die;
+    }
+     else if(empty($title) && empty($content))
+    {
+      $errors[] = "Title and content are empty";
+      
+    }
 
-        //save to database
-        $query = "insert into posts (title,content) values ('$title','$content')";
-        mysqli_query($con, $query);
-        header("Location: posts.php");
-        die;
+    else if(empty($title) && !empty($content))
+    {
+      $errors[] = "Title is empty";
+      
     }
-    else{
-        echo ("Please enter some valid information");
+    else
+    {
+      $errors[] = "Content is empty";
+      
     }
+    
+     
+  
 }
 
 ?>
@@ -189,24 +207,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <form method="post">
         <h1 class=" form__title text-blue">Create Post</h1>
 
-        <?php if(isset($_SESSION['$errors'])):?>
-            <div class="alert alert-danger">Please fix the errors below</div>
-        <?php endif;?>
+        
+          <div class="form__message form__message--error">
+              <p class="form__input-error-message"><?php echo outputErrors($errors);?></p>
+          </div>
+          <?php $errors[] = "";?>
+        
 
         <div class="form-floating form__input-group">
             <input type="text" class="form__input" name="title" autofocus placeholder="Title">
+            <div class="form__input-error-message"></div>
         </div>
-        <?php if(!empty($errors['title'])):?>
-            <div class="text-danger">Please fix the title below</div>
-        <?php endif;?>
+        
 
         <div class="form__input-group">
-            <textarea rows="20" type="text" class="form__input" name="title" autofocus placeholder="Content">
-            </textarea>
+            <textarea rows="20" type="text" class="form__input" name="content"  placeholder="Content"></textarea>
+            <div class="form__input-error-message"></div>
         </div>
-        <?php if(!empty($errors['content'])):?>
-            <div class="text-danger">Please fix the content below</div>
-        <?php endif;?>
+        
 
         <button class="mt-4 w-100 btn btn-primary" type="submit">Create</button>
 
@@ -224,11 +242,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   </div>
 </div>
 
-
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
 
       </script><script src="assets/js/dashboard.js"></script>
+    
   </body>
 </html>
