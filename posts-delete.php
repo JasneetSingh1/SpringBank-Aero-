@@ -4,35 +4,29 @@ session_start();
 include("connection.php");
 include("functions.php");
 
+$post_id = $_GET['id'];
 
-$query = "SELECT * FROM posts ORDER BY id DESC LIMIT 1";
+$query = "select * from posts where id = '$post_id' limit 1";
 $result = mysqli_query($con, $query);
 $post_data = mysqli_fetch_assoc($result);
 
         if($_SERVER['REQUEST_METHOD'] == "POST")
         {
 
-          if($row)
-          {
-
-            //validate
-            $errors = [];
- 
-            if(empty($errors))
-            {
+          
               //delete from database
               $data = [];
-              $data['id']       = $id;
+              $data['id']       = $post_id;
 
-              $query = "delete from posts where id = :id limit 1";
+              $query = "delete from posts where id = '$post_id' limit 1";
               mysqli_query($con, $query);
 
 
               header('Location: posts.php');
 
             }
-          }
-        }
+          
+        
       
 
 ?>
@@ -195,13 +189,14 @@ $post_data = mysqli_fetch_assoc($result);
         </div>
       </div>
 
-    <div class="col-md 6 mx-auto ">
+    <div class="col-md 6  ">
         <form method="post">
         <h1 class=" form__title text-blue">Delete Post</h1>
 
         
-        <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row m-auto mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-md-6  ">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
+                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
                         <div class="col p-4 d-flex flex-column position-static">
                             <strong class="d-inline-block mb-2 text-success">Design</strong>
                             <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
@@ -212,14 +207,11 @@ $post_data = mysqli_fetch_assoc($result);
                                         <?php echo $post_data['content'];?>
                                     <?php endif; ?></p>
                         </div>
-                        <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                        </div>
                     </div>
                 </div>
         
 
-        <button class="mt-4 w-100 btn btn-primary" type="submit">Delete</button>
+        <button class="mt-4 mb-4 w-30 btn btn-primary m-auto" type="submit">Delete</button>
 
         </form>
     </div>
