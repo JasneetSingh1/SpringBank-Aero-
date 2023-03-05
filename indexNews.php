@@ -1,6 +1,22 @@
+<?php
+
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+
+$post_query = "SELECT * FROM posts ORDER BY id DESC ";
+$post_result = mysqli_query($con, $post_query);
+$post_data = mysqli_fetch_assoc($post_result);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesNews.css">
     <script src="./index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -73,14 +89,46 @@
         </div>
 
     </nav>
-    <div class="newsNEvent">
-        <section id="newsAndEvents">
-            <h2 class="newsAndEvents__title">News & Events</h2>
-            <iframe class="newsAndEvents__calendar"
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FEdmonton&src=anNpbmc2MDBAbXRyb3lhbC5jYQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jMzM3Yzc3MGQxMDZhNDkzMWMyMjQwMDkzMTgzNzg0MDE1YjczMTNkYzU1NTAwMzMzNjU2ODA3ZDBlZjA0NmJkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%238E24AA&color=%230B8043"
-                style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        </section>
-    </div>
+
+    <section id="events">
+    <h2 class="events__title">News & Events</h2>
+    <div class="row mb-2">
+            <div class="col-md-6  ">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
+                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong class="d-inline-block mb-2 text-success">Design</strong>
+                            <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
+                                        <?php echo $post_data['title'];?>
+                                    <?php endif; ?></h3>
+                        <div class="mb-1 text-muted">Nov 11</div>
+                            <p class="mb-auto"><?php if (isset($post_data['content'])): ?>
+                                        <?php echo $post_data['content'];?>
+                                    <?php endif; ?></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6  ">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
+                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong class="d-inline-block mb-2 text-success">Design</strong>
+                            <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
+                                        <?php echo $post_data['title'];?>
+                                    <?php endif; ?></h3>
+                        <div class="mb-1 text-muted">Nov 11</div>
+                            <p class="mb-auto"><?php if (isset($post_data['content'])): ?>
+                                        <?php echo $post_data['content'];?>
+                                    <?php endif; ?></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+    </section>                             
+
+    
 </body>
 
 <footer>

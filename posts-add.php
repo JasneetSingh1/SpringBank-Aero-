@@ -10,8 +10,10 @@ $errors[] = "";
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     //something was posted
-    $title = $_POST['title'];
-    $content = $_POST['content'];
+    $title = mysqli_real_escape_string($con, $_POST['title']);
+    $content = mysqli_real_escape_string($con, $_POST['content']);
+    // $title = $_POST['title'];
+    // $content = $_POST['content'];
     
 
     if(!empty($title) && !empty($content))
@@ -60,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     
 
     
-    <link rel="stylesheet" href="stylesLoginPage.css">
+    <!-- <link rel="stylesheet" href="stylesLoginPage.css"> -->
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 

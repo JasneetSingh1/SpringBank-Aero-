@@ -189,7 +189,7 @@ $post_data = mysqli_fetch_assoc($result);
         </div>
       </div>
 
-    <div class="col-md 6  ">
+    <div class="col-md 6 d-flex align-items-center flex-column ">
         <form method="post">
         <h1 class=" form__title text-blue">Delete Post</h1>
 

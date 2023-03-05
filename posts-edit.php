@@ -211,7 +211,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
       </div>
 
-    <div class="col-md 6  ">
+    <div class="col-md 6 d-flex align-items-center flex-column ">
         <h1 class=" form__title text-blue">Edit Post</h1>
         <div class="col-md-6  ">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row 
