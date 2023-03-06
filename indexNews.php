@@ -6,9 +6,9 @@ include("connection.php");
 include("functions.php");
 
 
-$post_query = "SELECT * FROM posts ORDER BY id DESC ";
-$post_result = mysqli_query($con, $post_query);
-$post_data = mysqli_fetch_assoc($post_result);
+$query3 = "SELECT * FROM posts ORDER BY id DESC LIMIT 4";
+$result3 = mysqli_query($con,$query3);
+$post_result = mysqli_num_rows($result3);
 
 
 ?>
@@ -16,8 +16,9 @@ $post_data = mysqli_fetch_assoc($post_result);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="stylesNews.css">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="stylesNews.css">
+    
     <script src="./index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -84,50 +85,36 @@ $post_data = mysqli_fetch_assoc($post_result);
                 <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
                 <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
                 <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
-                <li><a href="#" class="menu__link menu__link--signUp singUp btn">Login</a></li>
+                <li><a href="./indexLoginPage.php" class="menu__link menu__link--a ">Login</a></li>
             </ul>
         </div>
 
     </nav>
+    <div class="newsNEvent">
+    <section id="newsAndEvents">
+    <h2 class="event__title">News & Events</h2>
+    <div class="row mb-2 d-flex align-items-center flex-column ">
+            
+            <?php
 
-    <section id="events">
-    <h2 class="events__title">News & Events</h2>
-    <div class="row mb-2">
-            <div class="col-md-6  ">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
-                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
-                            <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
-                                        <?php echo $post_data['title'];?>
-                                    <?php endif; ?></h3>
-                        <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto"><?php if (isset($post_data['content'])): ?>
-                                        <?php echo $post_data['content'];?>
-                                    <?php endif; ?></p>
-                        </div>
-                    </div>
-                </div>
+                   for($i=0; $i<$post_result; $i++) {
+                    $row = mysqli_fetch_assoc($result3);
+                    echo "<div class=\"col-md-6\">
+                    <div class=\"row g-0 border 
+                    rounded overflow-hidden flex-md-row 
+                    m-auto mb-4 shadow-sm h-md-250 position-relative\">
+                    <div class=\"col p-4 d-flex flex-column bg-white position-static \">
+                    <h3 class=\"mb-0\">". $row['title'] . "</h3>
+                    <div class=\"mb-1 text-muted\">" . date("jS M, Y",strtotime($row['date'])) . "</div>
+                    <p class=\"mb-auto\">" . $row['content'] . 
+                    "</p></div></div></div>";
 
-                <div class="col-md-6  ">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
-                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
-                            <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
-                                        <?php echo $post_data['title'];?>
-                                    <?php endif; ?></h3>
-                        <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto"><?php if (isset($post_data['content'])): ?>
-                                        <?php echo $post_data['content'];?>
-                                    <?php endif; ?></p>
-                        </div>
-                    </div>
-                </div>
-                
+                   }
+          
+                    ?>
             </div>
     </section>                             
-
+                </div>
     
 </body>
 

@@ -1,12 +1,53 @@
+
 <?php
-
-
-
 session_start();
+$user_data = check_login($con);
 include("connection.php");
 include("functions.php");
 
 $user_data = check_login($con);
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    //something was posted
+
+    $price = $_POST['jet_gas_price'];
+    $price2 = $_POST['av_gas_price'];
+
+    if (!empty($price) && is_numeric($price)) {
+
+        //save to database
+        $query = "insert into jet_a1_price (price) values ('$price')";
+        mysqli_query($con, $query);
+    }
+
+
+    if (!empty($price2) && is_numeric($price2)) {
+
+        //save to database
+        $query = "insert into av_gas_price (price) values ('$price2')";
+        mysqli_query($con, $query);
+        
+    }
+
+}
+
+
+$user_dat = check_login($con);
+
+        $query = "SELECT * FROM jet_a1_price ORDER BY id DESC LIMIT 1";
+        $result = mysqli_query($con, $query);
+        $user_data = mysqli_fetch_assoc($result);
+
+        $query2 = "SELECT * FROM av_gas_price ORDER BY id DESC LIMIT 1";
+        $result2 = mysqli_query($con, $query2);
+        $user_data2 = mysqli_fetch_assoc($result2);
+
+
+
+
 
 
 
@@ -27,7 +68,7 @@ $user_data = check_login($con);
     
 
     
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="admin-post-styles.css">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
@@ -98,7 +139,7 @@ $user_data = check_login($con);
   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="indexLoginPage.php">Sign out</a onclick="logOut()">
+      <a class="nav-link px-3" href="indexLoginPage.php">Sign out</a>
     </div>
   </div>
 </header>
@@ -109,7 +150,7 @@ $user_data = check_login($con);
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link " aria-current="page" href="admin.php">
               <i class="bi bi-speedometer"></i> 
               Dashboard
             </a>
@@ -119,7 +160,7 @@ $user_data = check_login($con);
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="admin-fuel-price.php">
+            <a class="nav-link active" aria-current="page" href="#">
             <i class="bi bi-fuel-pump-fill"></i>
               Fuel Prices
             </a>
@@ -147,7 +188,7 @@ $user_data = check_login($con);
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">Fuel Prices</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -159,6 +200,42 @@ $user_data = check_login($con);
           </button>
         </div>
       </div>
+
+
+      
+    
+    <div class="col-md 6 mt-4 d-flex align-items-center flex-column">
+        <form method="post" class="form" id="login">
+            <h1 class="form__title">Change Fuel Price</h1>
+
+            <div class="form__input-group d-flex flex-column align-items-center">
+                <h2 class="price__title">JET A-1 (FSII)</h2>
+                <p class="current__price">Current price: $
+                    <?php if (isset($user_data['price'])): ?>
+                        <?php echo $user_data['price'];?>
+                    <?php endif; ?>
+                </p>
+                <input type="text" class="form__input"  name="jet_gas_price" autofocus placeholder="JET A-1 (FSII)">
+                <div class="form__input-error-message"></div>
+            </div>
+            <br>
+            <div class="form__input-group d-flex flex-column align-items-center">
+                <h2 class="price__title">AV GAS 100LL</h2>
+                <p class="current__price">Current price: $
+                    <?php if (isset($user_data2['price'])): ?>
+                        <?php echo $user_data2['price'];?>
+                    <?php endif; ?>
+                </p>
+                <input type="text" class="form__input"  name="av_gas_price" autofocus placeholder="AV GAS 100LL">
+                <div class="form__input-error-message"></div>
+            </div>
+            
+            <div class="form__input-group">
+            <button class="mt-4 btn btn-primary btn-lg d-flex justify-items-center" type="submit" value="price_button" >Change</button>
+            </div>
+        </form>
+    </div>
+    
 
       
 

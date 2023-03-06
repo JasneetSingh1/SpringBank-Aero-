@@ -44,7 +44,9 @@ function outputErrors($errors)
 
 }
 
-function get_id($id)
+function esc($str)
 {
-    return $id;
+	return htmlspecialchars($str ?? '');
 }
+
+

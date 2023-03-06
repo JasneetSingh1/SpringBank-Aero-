@@ -4,7 +4,7 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-
+$user_data = check_login($con);
 
 $errors[] = "";
 if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -53,16 +53,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.108.0">
     <title>Dashboard Template · Bootstrap v5.3</title>
 
-   
-
-    
-
-    
-    <!-- <link rel="stylesheet" href="stylesLoginPage.css"> -->
+    <link rel="stylesheet" type="text/css" href="admin-post-styles.css">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
 
@@ -133,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
+      <a class="nav-link px-3" href="indexLoginPage.php">Sign out</a>
     </div>
   </div>
 </header>
@@ -145,25 +138,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <ul class="nav flex-column">
           <li class="nav-item">
           <a class="nav-link " aria-current="page" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
-                <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
-                <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-              </svg>
+          <i class="bi bi-speedometer"></i> 
               Dashboard
             </a>
             <a class="nav-link active " aria-current="page" href="posts.php">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
-                <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
-                <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-              </svg>
+            <i class="bi bi-newspaper"></i>
               Posts
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/admin/fuel_prices">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
-              <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
-              </svg>
+            <a class="nav-link" aria-current="page" href="admin-fuel-price.php">
+            <i class="bi bi-fuel-pump-fill"></i>
               Fuel Prices
             </a>
           </li>
@@ -179,9 +164,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <a class="nav-link" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-              <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
-            </svg>
+            <i class="bi bi-house-fill"></i>
               Home Page
             </a>
           </li>
@@ -205,30 +188,31 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         </div>
       </div>
 
-    <div class="col-md 6 mx-auto ">
-        <form method="post">
-        <h1 class=" form__title text-blue">Create Post</h1>
+    <div class="col-md 6 mt-4 ">
+        <form class="" method="post">
+        <h1 class=" form__title text-blue text-center mb-10">Create Post</h1>
 
         
           <div class="form__message form__message--error">
               <p class="form__input-error-message"><?php echo outputErrors($errors);?></p>
           </div>
-          <?php $errors[] = "";?>
+          
         
 
-        <div class="form-floating form__input-group">
-            <input type="text" class="form__input" name="title" autofocus placeholder="Title">
+        <div class="form-floating form__input-group ">
+            <input type="text" class="form__input w-50 " name="title" autofocus placeholder="Title">
             <div class="form__input-error-message"></div>
         </div>
         
 
         <div class="form__input-group">
-            <textarea rows="20" type="text" class="form__input" name="content"  placeholder="Content"></textarea>
+            <textarea rows="20" type="text" class="form__input  w-50" name="content"  placeholder="Content"></textarea>
             <div class="form__input-error-message"></div>
         </div>
         
-
-        <button class="mt-4 w-100 btn btn-primary" type="submit">Create</button>
+        <div class="form__input-group">
+        <button class="mt-4 btn btn-primary btn-lg d-flex justify-items-center " type="submit">Create</button>
+        </div>
 
         </form>
     </div>
@@ -244,11 +228,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   </div>
 </div>
 
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
 
-      </script><script src="assets/js/dashboard.js"></script>
     
   </body>
 </html>

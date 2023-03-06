@@ -15,10 +15,11 @@ include("functions.php");
         $result2 = mysqli_query($con, $query2);
         $user_data2 = mysqli_fetch_assoc($result2);
         
+        $query3 = "SELECT * FROM posts ORDER BY id DESC LIMIT 4";
+        $result3 = mysqli_query($con,$query3);
+        $post_result = mysqli_num_rows($result3);
 
-        $post_query = "SELECT * FROM posts ORDER BY id DESC ";
-        $post_result = mysqli_query($con, $post_query);
-        $post_data = mysqli_fetch_assoc($post_result);
+    
 
 ?>
 
@@ -72,7 +73,7 @@ include("functions.php");
                      link__hover-effect--black">Detailing</a>
                 </li>
                 <li class="nav__link">
-                    <a href="./indexNews.html" class="
+                    <a href="./indexNews.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">News & Events</a>
@@ -98,9 +99,9 @@ include("functions.php");
                     <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
                     <li><a href="./indexServices.php" class="menu__link menu__link--a">Services</a></li>
                     <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
-                    <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
+                    <li><a href="./indexNews.php" class="menu__link menu__link--a">News & Events</a></li>
                     <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
-                    <li><a href="#" class="menu__link menu__link--signUp singUp btn">Login</a></li>
+                    <li><a href="indexLoginPage.php" class="menu__link menu__link--a ">Login</a></li>
                 </ul>
             </div>
 
@@ -108,7 +109,7 @@ include("functions.php");
         </div>
         <header class="header">
             <!-- <img class="header__background--img" src="./assets/airstrip.webp" alt=""> -->
-            <div class="info__content">
+            <div class="info__content bg-primary bg-opacity-50 ">
                 <ul class="info__list">
                     <li class="info__item">Identifier: CYBW</li>
                     <li class="info__item">Coordinates: N51 06.32, W114 22.29</li>
@@ -120,12 +121,14 @@ include("functions.php");
             </div>
             <div class="header__content">
                 <h1 class="header__title"><b class="blue">Springbank</b> Aero <b class="blue">Services</b></h1>
-                <p class="header__para">Safe, Fast, Convient</p>
-                <a href="./indexServices.php">
-                    <button class="service__btn">
-                        Our Services
-                    </button>
-                </a>
+                <div class="border border-white border-opacity-25  shadow-none p-3 mb-5 bg-primary rounded bg-opacity-25 d-flex flex-column align-items-center ">
+                    <p class="header__para">Safe, Fast, Convient</p>
+                    <a href="./indexServices.php">
+                        <button class="service__btn">
+                            Our Services
+                        </button>
+                    </a>
+                </div>
             </div>
         </header>
         <section id="about-us">
@@ -145,42 +148,26 @@ include("functions.php");
 
         <section id="events">
             <h2 class="events__title">News & Events</h2>
-
             <div class="row mb-2 d-flex align-items-center flex-column ">
-            <div class="col-md-6  ">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
-                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
-                            <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
-                                        <?php echo $post_data['title'];?>
-                                    <?php endif; ?></h3>
-                        <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto"><?php if (isset($post_data['content'])): ?>
-                                        <?php echo $post_data['content'];?>
-                                    <?php endif; ?></p>
-                        </div>
-                    </div>
-                </div>
+            
+            <?php
 
-                <div class="col-md-6  ">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row 
-                    m-auto mb-4 shadow-sm h-md-250 position-relative ">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
-                            <h3 class="mb-0"><?php if (isset($post_data['title'])): ?>
-                                        <?php echo $post_data['title'];?>
-                                    <?php endif; ?></h3>
-                        <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="mb-auto"><?php if (isset($post_data['content'])): ?>
-                                        <?php echo $post_data['content'];?>
-                                    <?php endif; ?></p>
-                        </div>
-                    </div>
-                </div>
-                
+                   for($i=0; $i<$post_result; $i++) {
+                    $row = mysqli_fetch_assoc($result3);
+                    echo "<div class=\"col-md-6\">
+                    <div class=\"row g-0 border 
+                    rounded overflow-hidden flex-md-row 
+                    m-auto mb-4 shadow-sm h-md-250 position-relative\">
+                    <div class=\"col p-4 d-flex flex-column bg-white position-static\">
+                    <h3 class=\"mb-0\">". $row['title'] . "</h3>
+                    <div class=\"mb-1 text-muted\">" . date("jS M, Y",strtotime($row['date'])) . "</div>
+                    <p class=\"mb-auto\">" . $row['content'] . 
+                    "</p></div></div></div>";
+
+                   }
+          
+                    ?>
             </div>
-
         </section>
 
         <section id="fuelPrices">

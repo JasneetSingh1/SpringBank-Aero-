@@ -54,7 +54,7 @@ $user_data2 = mysqli_fetch_assoc($result2);
                 link__hover-effect--black">About</a>
             </li>
             <li class="nav__link">
-                <a href="#" class="
+                <a href="indexServices.php" class="
                 nav__link--anchor
                 link__hover-effect
                 link__hover-effect--black">Services</a>
@@ -66,7 +66,7 @@ $user_data2 = mysqli_fetch_assoc($result2);
                  link__hover-effect--black">Detailing</a>
             </li>
             <li class="nav__link">
-                <a href="./indexNews.html" class="
+                <a href="./indexNews.php" class="
                 nav__link--anchor
                 link__hover-effect
                 link__hover-effect--black">News & Events</a>
@@ -92,9 +92,9 @@ $user_data2 = mysqli_fetch_assoc($result2);
                 <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
                 <li><a href="./indexServices.php" class="menu__link menu__link--a">Services</a></li>
                 <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
-                <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
+                <li><a href="./indexNews.php" class="menu__link menu__link--a">News & Events</a></li>
                 <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
-                <li><a href="#" class="menu__link menu__link--signUp singUp btn">Login</a></li>
+                <li><a href="./indexLoginPage.php" class="menu__link menu__link--a ">Login</a></li>
             </ul>
         </div>
 

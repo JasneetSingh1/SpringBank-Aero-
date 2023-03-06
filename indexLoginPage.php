@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 
                 if($user_data['password'] === $password){
                     $_SESSION['user_id'] = $user_data['user_id'];
-                    header("Location: adminPage.php");
+                    header("Location: admin.php");
                     die;
                     }
                 }
@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <html lang="en">
 <head>
     <link rel="stylesheet" href="stylesloginPage.css">
-    <!-- <script src="./index.js"></script> -->
+    <script src="./index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         <nav>
             
             <figure>
-                <a href="./index1.html"><img id="personal-logo" src="./assets/personal-logo.png" alt=""></a>
+                <a href="./index1.php"><img id="personal-logo" src="./assets/personal-logo.png" alt=""></a>
             </figure>
             <ul class="nav__link--list">
                 <li class="nav__link">
@@ -117,7 +117,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
                     <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
                     <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
-                    <li><a href="#" class="menu__link menu__link--signUp singUp btn">Login</a></li>
+                    <li><a href="indexLoginPage.php" class="menu__link menu__link--a ">Login</a></li>
                 </ul>
             </div>
         
