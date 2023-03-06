@@ -15,8 +15,11 @@ include("functions.php");
         $result2 = mysqli_query($con, $query2);
         $user_data2 = mysqli_fetch_assoc($result2);
         
-    
+        $query3 = "SELECT * FROM posts ORDER BY id DESC LIMIT 4";
+        $result3 = mysqli_query($con,$query3);
+        $post_result = mysqli_num_rows($result3);
 
+    
 
 ?>
 
@@ -28,6 +31,7 @@ include("functions.php");
 
 <head>
     <link rel="stylesheet" href="./styles.css">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="./index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -69,7 +73,7 @@ include("functions.php");
                      link__hover-effect--black">Detailing</a>
                 </li>
                 <li class="nav__link">
-                    <a href="./indexNews.html" class="
+                    <a href="./indexNews.php" class="
                     nav__link--anchor
                     link__hover-effect
                     link__hover-effect--black">News & Events</a>
@@ -95,9 +99,9 @@ include("functions.php");
                     <li><a href="./indexAbout.html" class="menu__link menu__link--a">About</a></li>
                     <li><a href="./indexServices.php" class="menu__link menu__link--a">Services</a></li>
                     <li><a href="#" class="menu__link menu__link--a">Detailing</a></li>
-                    <li><a href="./indexNews.html" class="menu__link menu__link--a">News & Events</a></li>
+                    <li><a href="./indexNews.php" class="menu__link menu__link--a">News & Events</a></li>
                     <li><a href="./indexContact.html" class="menu__link menu__link--a">Contact Us</a></li>
-                    <li><a href="#" class="menu__link menu__link--signUp singUp btn">Login</a></li>
+                    <li><a href="indexLoginPage.php" class="menu__link menu__link--a ">Login</a></li>
                 </ul>
             </div>
 
@@ -105,7 +109,7 @@ include("functions.php");
         </div>
         <header class="header">
             <!-- <img class="header__background--img" src="./assets/airstrip.webp" alt=""> -->
-            <div class="info__content">
+            <div class="info__content bg-primary bg-opacity-50 ">
                 <ul class="info__list">
                     <li class="info__item">Identifier: CYBW</li>
                     <li class="info__item">Coordinates: N51 06.32, W114 22.29</li>
@@ -117,12 +121,14 @@ include("functions.php");
             </div>
             <div class="header__content">
                 <h1 class="header__title"><b class="blue">Springbank</b> Aero <b class="blue">Services</b></h1>
-                <p class="header__para">Safe, Fast, Convient</p>
-                <a href="./indexServices.php">
-                    <button class="service__btn">
-                        Our Services
-                    </button>
-                </a>
+                <div class="border border-white border-opacity-25  shadow-none p-3 mb-5 bg-primary rounded bg-opacity-25 d-flex flex-column align-items-center ">
+                    <p class="header__para">Safe, Fast, Convient</p>
+                    <a href="./indexServices.php">
+                        <button class="service__btn">
+                            Our Services
+                        </button>
+                    </a>
+                </div>
             </div>
         </header>
         <section id="about-us">
@@ -139,12 +145,31 @@ include("functions.php");
                     <a href="./indexAbout.html"><button class="about__btn service__btn">More About Us!</button></a>
             </div>
         </section>
+
         <section id="events">
             <h2 class="events__title">News & Events</h2>
-            <iframe class="events__calendar"
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FEdmonton&src=anNpbmc2MDBAbXRyb3lhbC5jYQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jMzM3Yzc3MGQxMDZhNDkzMWMyMjQwMDkzMTgzNzg0MDE1YjczMTNkYzU1NTAwMzMzNjU2ODA3ZDBlZjA0NmJkQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%238E24AA&color=%230B8043"
-                style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            <div class="row mb-2 d-flex align-items-center flex-column ">
+            
+            <?php
+
+                   for($i=0; $i<$post_result; $i++) {
+                    $row = mysqli_fetch_assoc($result3);
+                    echo "<div class=\"col-md-6\">
+                    <div class=\"row g-0 border 
+                    rounded overflow-hidden flex-md-row 
+                    m-auto mb-4 shadow-sm h-md-250 position-relative\">
+                    <div class=\"col p-4 d-flex flex-column bg-white position-static\">
+                    <h3 class=\"mb-0\">". $row['title'] . "</h3>
+                    <div class=\"mb-1 text-muted\">" . date("jS M, Y",strtotime($row['date'])) . "</div>
+                    <p class=\"mb-auto\">" . $row['content'] . 
+                    "</p></div></div></div>";
+
+                   }
+          
+                    ?>
+            </div>
         </section>
+
         <section id="fuelPrices">
             <h2 class="fuelPrices__title">Fuel Prices</h2>
             <div class="plans">

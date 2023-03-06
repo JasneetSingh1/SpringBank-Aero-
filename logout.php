@@ -1,11 +1,6 @@
 <?php
-
 session_start();
-
-if(isset($_SESSION['user_id'])){
-
-    unset($_SESSION['user_id']);
-}
-
-header("Location: indexLoginPage.php");
-die;
+session_destroy();
+// Redirect to the login page:
+header('Location: indexLoginPage.html');
+?>

@@ -32,3 +32,21 @@ function random_num($length){
 
     return $text;
 }
+
+function outputErrors($errors)
+{
+    $output = array();
+    foreach($errors as $error)
+    {
+        echo $error;
+        
+    }
+
+}
+
+function esc($str)
+{
+	return htmlspecialchars($str ?? '');
+}
+
+

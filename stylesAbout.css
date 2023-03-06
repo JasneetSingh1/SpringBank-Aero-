@@ -366,3 +366,134 @@ footer{
         display: none;
     }
 }
+
+
+@media(max-width:1060px){
+    .btn__menu{
+        display: block;
+    }
+
+    .nav__link--list{
+        display: none;
+    }
+}
+
+@media(max-width: 995px){
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer__social--list{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+        max-width: none;
+        align-items: center;
+        padding: 0 16px;
+        margin-top: 50px;
+    }
+
+    .footer__logo--img{
+        transform: translateX(0px);
+    }
+
+    .modal__media{
+        transform: translateX(0px);
+    }
+
+    .newsAndEvents__calendar{
+        width: 95%;
+    }
+
+}
+
+
+@media (max-width: 768px){
+
+    #personal-logo{
+        width: 240px;
+    }
+
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer__social--list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer__social--link{
+        text-align: center;
+    }
+
+
+    .footer__booking--link{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .footer__contact--wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    .footer__location--wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    .footer__row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .footer__copyright{
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .newsAndEvents__calendar{
+        width: 100%;
+    }
+
+    .newsAndEvents__title{
+        text-align: center;
+    }
+    
+
+} 
+
+@media(max-width:380px){
+    .footer__copyright{
+        padding: 0 6px;
+    }
+}
