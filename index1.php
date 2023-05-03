@@ -260,7 +260,7 @@ include("functions.php");
             </div>
         </div>
     </div>
-    <div class="footer__copyright">© Copyright 2023 | Theme by evansdigitaldesign.ca | All Rights Reserved </div>
+    <div class="footer__copyright">© Copyright 2023 | Theme by Evans Digital Design | All Rights Reserved </div>
 
 </footer>
 </html>
